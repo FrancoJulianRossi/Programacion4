@@ -3,10 +3,12 @@ Grupo 2
 
 Integrantes:
 
-Franco Julian Rossi
+.Franco Julian Rossi
 
-Manuel Galdames
+.Manuel Galdames
 
-Martin Andres Garnica
+.Martin Andres Garnica
 
-Santiago Recari
+.Santiago Recari
+
+.Muñoz Cartagena, Franco Agustin
