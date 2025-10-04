@@ -2,11 +2,11 @@
   "name": "tp2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "vitest -ui",
+    "test": "vitest --ui",
     "build": "npx tsc --watch",
-    "dev": "node --watch ./dist/index.js"
+    "dev": "node --watch ./dist/app.js"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,9 @@
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
+    "@types/express": "^5.0.3",
     "@types/node": "^24.6.2",
+    "@vitest/ui": "^3.2.4",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4",
     "zod": "^4.1.11"
