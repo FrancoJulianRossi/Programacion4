@@ -1,6 +1,7 @@
 import { OrderCRUD } from './interface/orderCRUD.interface';
 import { Order } from './order';
 export declare class MockOrder implements OrderCRUD<number> {
+    private ordersList;
     getOrderById(id: number): Order<number>;
     getOrderByStatus(Status: string): Order<number>[];
     createOrder(order: Order<number>): Order<number>;

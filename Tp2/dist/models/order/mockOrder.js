@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MockOrder = void 0;
 class MockOrder {
+    ordersList = [];
     getOrderById(id) {
         throw new Error('Method not implemented.');
     }
@@ -9,7 +10,8 @@ class MockOrder {
         throw new Error('Method not implemented.');
     }
     createOrder(order) {
-        ;
+        this.ordersList.push(order);
+        return order;
     }
     cancelOrder(id) {
         throw new Error('Method not implemented.');
