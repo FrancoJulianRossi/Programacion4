@@ -1,3 +1,17 @@
+# Evidencia de TDD:
+## Rojo
+Tratamos de realizar los test unitarios pero en el mock teniamos los metodos con throw New error, por lo tanto no pasaban el test.
+
+Tratamos de realizar los test de integracion pero no estaban definidas las rutas y no habia controladores,por lo tanto no pasaban el test. Uno de los errores obtenidos fue: "expected 404 to be 200 // Object.is equality"
+
+## Verde
+Completamos los metodos en el mock para los test unitarios,por lo tanto pasaban los test.
+
+Completamos los controladores y los suplementamos en las rutas.
+
+## Refactor
+Agregamos validaciones con ZOD , en los servicios devolvemos promesas e implementamos la correcta forma de calcular el precio que se basa en cantidad de toppings multiplicado por el precio de los toppings, sumado al valor del tamaño de la pizza.
+
 # User stories
 
 ## US1
