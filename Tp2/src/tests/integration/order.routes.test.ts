@@ -1,7 +1,9 @@
 import request from 'supertest';
-import app from '../../app';
+import makeapp from '../../app';
 import { orderService } from '../../services/order.service';
-import { test, expect, describe } from 'vitest';
+import { test, expect, describe, beforeAll } from 'vitest';
+
+const app = makeapp();
 
 describe("Order Routes", () => {
     const newOrder = {
@@ -11,6 +13,7 @@ describe("Order Routes", () => {
         status: "PENDING",
         price: 100
     };
+
     test("POST /orders - create order", async () => {
         const response = await request(app).post("/orders").send(newOrder);
         expect(response.status).toBe(201);
@@ -21,4 +24,9 @@ describe("Order Routes", () => {
         expect(response.body.price).toBe(newOrder.price);
     });
 
+    test("GET /orders/:id - get orders by id", async () => {
+        const response = await request(app).get("/orders/1");
+        expect(response.status).toBe(200);
+        expect(response.body).toHaveProperty("id");
+    });
 });
