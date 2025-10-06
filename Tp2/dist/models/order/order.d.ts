@@ -7,5 +7,9 @@ export declare class Order<ID> {
     protected status: status;
     protected price: number;
     constructor(id: ID, topping: string[], size: size, status: status, price: number);
+    getId(): ID;
+    getStatus(): status;
+    setId(id: ID): void;
+    setStatus(status: status): void;
 }
 //# sourceMappingURL=order.d.ts.map

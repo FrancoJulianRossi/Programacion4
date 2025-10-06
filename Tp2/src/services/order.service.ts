@@ -5,15 +5,15 @@ const mockOrder = new MockOrder();
 
 export const orderService = {
     createOrder(order: Order<number>) {
-        return mockOrder.createOrder(order);
+        return Promise.resolve(mockOrder.createOrder(order));
     },
     getOrderById(id: number) {
-        return mockOrder.getOrderById(id);
+        return Promise.resolve(mockOrder.getOrderById(id));
     },
     getOrderByStatus(status: string) {
-        return mockOrder.getOrderByStatus(status);
+        return Promise.resolve(mockOrder.getOrderByStatus(status));
     },
     cancelOrder(id: number) {
-        return mockOrder.cancelOrder(id);
+        return Promise.resolve(mockOrder.cancelOrder(id));
     }
 };

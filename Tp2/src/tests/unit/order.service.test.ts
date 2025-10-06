@@ -9,4 +9,13 @@ describe('test OrderCRUD', () => {
     test('create order',() => {
         expect(crud.createOrder(order)).toBe(order);
     })
+    test('get order by id',() => {
+        expect(crud.getOrderById(1)).toBe(order);
+    })
+    test('get order by status',() => {
+        expect(crud.getOrderByStatus("PENDING")).toEqual([order]);
+    })
+    test('cancel order',() => {
+        expect(crud.cancelOrder(1)).toBe(order);
+    })
 });

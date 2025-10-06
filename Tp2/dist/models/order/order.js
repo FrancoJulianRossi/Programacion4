@@ -14,6 +14,20 @@ class Order {
         this.status = status;
         this.price = price;
     }
+    // Getters
+    getId() {
+        return this.id;
+    }
+    getStatus() {
+        return this.status;
+    }
+    // Setters
+    setId(id) {
+        this.id = id;
+    }
+    setStatus(status) {
+        this.status = status;
+    }
 }
 exports.Order = Order;
 //# sourceMappingURL=order.js.map

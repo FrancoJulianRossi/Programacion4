@@ -8,4 +8,18 @@ export class Order<ID> {
         protected status: status,
         protected price: number
     ){}
+    // Getters
+    getId():ID{
+        return this.id;
+    }
+    getStatus():status{
+        return this.status;
+    }
+    // Setters
+    setId(id:ID):void{
+        this.id = id;
+    }
+    setStatus(status:status):void{
+        this.status = status;
+    }
 }

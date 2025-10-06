@@ -9,5 +9,14 @@ const mockOrder_1 = require("../../models/order/mockOrder");
     (0, vitest_1.test)('create order', () => {
         (0, vitest_1.expect)(crud.createOrder(order)).toBe(order);
     });
+    (0, vitest_1.test)('get order by id', () => {
+        (0, vitest_1.expect)(crud.getOrderById(1)).toBe(order);
+    });
+    (0, vitest_1.test)('get order by status', () => {
+        (0, vitest_1.expect)(crud.getOrderByStatus("PENDING")).toEqual([order]);
+    });
+    (0, vitest_1.test)('cancel order', () => {
+        (0, vitest_1.expect)(crud.cancelOrder(1)).toBe(order);
+    });
 });
 //# sourceMappingURL=order.service.test.js.map
