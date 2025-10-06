@@ -6,7 +6,8 @@ export class Order<ID> {
         protected topping: string[],
         protected size: size,
         protected status: status,
-        protected price: number
+        protected price: number,
+        protected address: string,
     ){}
     // Getters
     getId():ID{
