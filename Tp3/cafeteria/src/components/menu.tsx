@@ -1,10 +1,17 @@
-import {useMenu} from '../hooks/useMenu';
-import {useOrder} from '../context/useOrder';
+import { useOrder } from "../context/useOrder";
+import { useMenu } from "../hooks/useMenu";
 
 const Menu = () => {
-    const products = useMenu();
-    const { addToOrder } = useOrder();
-    return (
+  const { products, error } = useMenu();
+  const { addToOrder } = useOrder();
+
+  if (error) return <p>{error}</p>;
+
+  if (!products || products.length === 0) {
+    return <p>No hay productos disponibles</p>;
+  }
+
+  return (
     <ul>
       {products.map((p) => (
         <li key={p.id}>
