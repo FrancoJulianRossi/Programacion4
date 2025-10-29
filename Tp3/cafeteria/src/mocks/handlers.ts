@@ -13,4 +13,10 @@ export const handlers = [
       menu: mockProducts
     })
   }),
+
+  http.post("/api/orders", async ({ request }) => {
+    const order = await request.json();
+    console.log("Pedido recibido en mock:", order);
+    return HttpResponse.json({ success: true, message: "Pedido confirmado" });
+  }),
 ]

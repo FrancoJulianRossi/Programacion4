@@ -1,10 +1,15 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
 import Menu from '../components/menu';
+import { OrderProvider } from '../context/useOrder';
 
 describe('Visualizacion inicial del menu', () => {
     test("muestra productos del menú obtenidos de la API", async () => {
-        render(<Menu />);
+        render(
+        <OrderProvider>
+        <Menu />
+        </OrderProvider>
+    );
 
         await waitFor(() => {
             const items = screen.getAllByRole("listitem");
@@ -14,9 +19,5 @@ describe('Visualizacion inicial del menu', () => {
         expect(screen.getByText(/Cafe/)).toBeInTheDocument();
     });
     
-    test("agrega un item al pedido al hacer click", async () => {
-        render(<Menu />);
-
-    })
 })
 
