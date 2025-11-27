@@ -23,7 +23,9 @@ describe('Seguridad: SQL Injection', () => {
     for (const injection of sqlInjections) {
       const response = await request(app)
         .get('/api/products')
-        .query({ category: injection });
+        .query({
+          category: injection
+        });
 
       // No debe devolver todos los productos ni error SQL
       expect(response.status).toBe(200);
@@ -36,7 +38,9 @@ describe('Seguridad: SQL Injection', () => {
   test('❌ DEBE FALLAR: No debe permitir inyección SQL en el parámetro search', async () => {
     const response = await request(app)
       .get('/api/products')
-      .query({ search: "'; DELETE FROM products WHERE '1'='1" });
+      .query({
+        search: "'; DELETE FROM products WHERE '1'='1"
+      });
 
     // La búsqueda debe ser segura
     expect(response.status).toBe(200);
@@ -46,7 +50,7 @@ describe('Seguridad: SQL Injection', () => {
   test('❌ DEBE FALLAR: No debe exponer información de la base de datos', async () => {
     const response = await request(app)
       .get('/api/products')
-      .query({ 
+      .query({
         category: "' UNION SELECT table_name, column_name, null, null, null FROM information_schema.columns --"
       });
 
@@ -61,7 +65,7 @@ describe('Seguridad: SQL Injection', () => {
     // Intento de inyección que cambiaría la lógica
     const response = await request(app)
       .get('/api/products')
-      .query({ 
+      .query({
         category: "Electronics' OR category='Furniture"
       });
 
@@ -81,7 +85,9 @@ describe('Seguridad: SQL Injection', () => {
     for (const injection of injections) {
       const response = await request(app)
         .get('/api/products')
-        .query({ category: injection });
+        .query({
+          category: injection
+        });
 
       // Debe tratar los comentarios como parte del string
       expect(response.status).toBe(200);
@@ -136,7 +142,7 @@ describe('📝 INSTRUCCIONES PARA CORREGIR SQL INJECTION', () => {
        // MALO: query += " AND category = '" + category + "'";
        // BUENO: usar placeholders ?
     `;
-    
+
     console.log(instrucciones);
     expect(true).toBe(true);
   });
